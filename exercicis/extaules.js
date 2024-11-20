@@ -50,3 +50,4 @@ let altraTaula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
 for (let i=0; i<altraTaula.length; i++) {
     console.log(altraTaula[i]);
 }
+ 
