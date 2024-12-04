@@ -6,4 +6,4 @@ if (numeroNegatiu<0) {
     document.write("El número llegit és negatiu");
 }
 
-document.getElementById('resposta'). innerHTML = "Això és un altre output";
+document.getElementById('resposta'). innerHTML = "Això és un altre output"; // això és més convenient que document.write perquè pots escollir on s'escriurà a la pàgina
