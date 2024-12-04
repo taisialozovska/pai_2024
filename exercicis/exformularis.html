@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicis Formularis</title>
+</head>
+<body>
+    <form action="">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" placeholder="Escriu el teu nom" 
+        onclick="this.placeholder =''; this.style.color ='black'"
+        onblur="console.log(this.value)"><br><br>
+        <label for="pregunta">Afegir comentaris?</label><br>
+        <input type="radio" name="pregunta" value="No" id="preg_no" >No
+        <input type="radio" name="pregunta" value="Si" id="preg_si" >Sí<br><br>
+        <label for="coment">Comentaris:</label><br>
+        <textarea name="coment" id="coment" placeholder="Escriu aquí"></textarea><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    
+
+</body>
+</html>
+
+<!--Fets els 3 primers passos--> 
