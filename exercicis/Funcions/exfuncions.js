@@ -89,3 +89,59 @@ function paraules5Lletres (relat){
     }
     return comptadorParaules;
 }
+
+//Exercici 3.6
+// A partir de l’experiència del concurs anterior hem decidir fer un concurs semblant cada setmana. Però cada setmana volem comptar paraules amb 
+// diferents números de lletres. Així aquesta setmana seran paraules de 7 lletres, la setmana vinent de 4 i l’altre de 3. 
+// Què cal modificar a la funció per a que puguem fer servir la mateixa funció totes les setmanes?
+
+//cal afegir un paràmetre a la funció que obtingui el número de lletres que volguem, per exemple numLletres, i el substituïm allà on posi 5.
+function paraules5Lletres (relat, numLletres){
+    let comptadorParaules = 0;
+    let caracters = 0;
+    let i = 0;
+    while (relat[i] !== "."){
+        if(relat[i] == " "){
+            if (caracters === numLletres){
+                comptadorParaules++;
+            }
+        caracters = 0;
+        }else if (relat[i] !== ","){
+            caracters++;
+            }
+        i++;
+        }
+    if (caracters === numLletres){
+        comptadorParaules++;
+    }
+    return comptadorParaules;
+}
+
+//Exercici 3.7 
+//fer una funció que, donada una frase, ens retorni a una taula quantes paraules hi ha amb 1, 2, 3, 4, 5, 6 o 7 lletres.
+function numParaules (frase) {
+    const recompteParaules = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0
+    };
+    let lletres = 0;
+    let i = 0;
+
+    while (i < frase.length && frase[i] !== ".") {
+        if (frase[i] === " " || frase[i] === "," || frase[i] === "!" || frase[i] === "?") {
+            if (lletres >= 1 && lletres <= 7) {
+                recompteParaules[lletres]++;
+            }
+            lletres = 0;
+        }else if (/[a-zA-ZÀ-ÿ]/.test(frase[i])) {
+            lletres++;
+        }
+        i++;
+    }
+    return recompteParaules;
+}
