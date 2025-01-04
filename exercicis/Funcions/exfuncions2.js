@@ -76,3 +76,53 @@ function anyTraspas(any){
 //let resultat = anyTraspas(any);
 //console.log (resultat);
 
+//19.9.- La funció Math.random() de JavaScript retorna un valor dins del rang [0,1) (0 inclòs, 1 no inclòs). 
+// La funció Math.floor(valor) ens retorna valor eliminant els decimals. 
+// Fent servir aquestes funcions, crear una funció que donats dos valors min i max ens calculi un nombre aleatori entre min i max, ambdòs inclosos. 
+function numAleatori(valorMin, valorMax){
+    let nombreAleatori = Math.random();
+    let ajustat = valorMin + nombreAleatori * (valorMax - valorMin + 1); //inclou el valor màxim al càlcul
+    return Math.floor (ajustat);
+}
+//const resultat = numAleatori(10, 30); 
+//console.log(resultat);
+
+//19.10.- Crea una funció en la que donat un text, indiqui si és o no un palíndrom.
+function palindrom (text){
+    let textMinusc = text.toLowerCase();
+    let textNormalitzat = textMinusc.replace(/[^a-z0-9]/g, ''); //treu tot el que no siguin lletres o números
+    let textInvertit = textNormalitzat.split('').reverse().join(''); //Divideix la cadena en un array de caràcters, reverteix l'ordre i torna a unir.
+    return textInvertit === textNormalitzat;  
+}
+//let text = prompt("Introdueix una paraula o frase:");
+//let resultat = palindrom(text);
+//console.log(resultat);
+
+//19.11.- Crea una funció que rebi una cadena de caràcters i retorni aquesta cadena codificada segons les següents regles:
+//Es posaran les paraules en l’ordre invers  
+//Els caràcters que conformen les paraules també s’han d’invertir. 
+//Les vocals que apareguin s’han de canviar pel seu número equivalent (a=1, e=2, i=3, o=4 i u=5)
+function cadenaCodificada(cadena){
+    let invertirParaules = cadena.split(' ').reverse();
+
+    let invertirCaracters = [];
+    for(let i = 0; i< invertirParaules.length; i++){
+        let invertir = invertirParaules[i].split('').reverse().join('');
+        invertirCaracters.push(invertir);
+    }
+    invertirCaracters = invertirCaracters.join(' ');
+    //Cada vegada que .replace() troba una vocal, crida la funció function(vocal)
+    let resultat = invertirCaracters.replace(/[aeiou]/gi, function(vocal) { //gi vol dir que es global(g), que no nomes agafa la primera que troba; i que es insensitive(i)a majúscules/minúscules
+        switch (vocal.toLowerCase()) {
+            case 'a': return '1';
+            case 'e': return '2';
+            case 'i': return '3';
+            case 'o': return '4';
+            case 'u': return '5';
+        }
+    });
+    return resultat;
+}
+//let cadena = prompt("Introdueix una frase:");
+//let codificada = cadenaCodificada(cadena);
+//console.log(codificada);
