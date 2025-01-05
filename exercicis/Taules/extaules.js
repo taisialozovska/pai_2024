@@ -33,7 +33,8 @@ let numero = parseInt(prompt("Escriu un número"));
 let numeros = [numero*2,numero*3];
 console.log(numeros);
 
-//21.5.- Fes un programa que, donat dos números, que demanarem per pantalla i emmagatzemarem a dues variables, guardi a una taula els resultats de la suma, la resta, la multiplicació i la divisió dels dos valors introduïts. 
+//21.5.- Fes un programa que, donat dos números, que demanarem per pantalla i emmagatzemarem a dues variables, guardi a una taula els resultats de 
+//la suma, la resta, la multiplicació i la divisió dels dos valors introduïts. 
 let num1 = parseInt(prompt("Escriu un número"));
 let num2 = parseInt(prompt("Escriu un altre número"));
 let operacions =[num1+num2, num1-num2, num1*num2, num1/num2];
@@ -50,4 +51,79 @@ let altraTaula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
 for (let i=0; i<altraTaula.length; i++) {
     console.log(altraTaula[i]);
 }
- 
+
+//21.8.- Fes un programa que escrigui a la consola la suma tots els valors emmagatzemats a la taula.
+let suma = 0; 
+for (let i=0; i<altraTaula.length; i++){
+    suma+=altraTaula[i];
+}
+console.log(suma);
+
+//21.9.- Fes un programa que crei una segona taula i emmagatzemi a ella tots els valors de la taula, tot sumant-los 25 
+//(així les tres primeres posicions de la nova taula emmagatzemarien [48, 70, 88] Un cop fet haurà d’escriure la nova taula a la consola.
+let novaTaula =[];
+for (let i=0; i<altraTaula.length; i++){
+    novaTaula[i] = altraTaula[i]+25;
+}
+console.log(novaTaula);
+
+//21.10.- Fes un programa que calculi la mitjana dels valors emmagatzemats a la taula i l’escrigui a la consola 
+//(la mitjana es calcula sumant tots els valors i dividint pel nombre de valors).
+let sumaTotal = 0; 
+for (let i=0; i<altraTaula.length; i++){
+    sumaTotal+=altraTaula[i];
+}
+mitjana = suma/altraTaula.length;
+console.log(mitjana);
+
+//21.11.- Fes un programa que calculi i escrigui a la consola els valors més gran i més petit de la taula.
+let max = altraTaula[0];
+let min = altraTaula[0];
+for (let i = 0; i < altraTaula.length; i++) {
+    if (altraTaula[i] > max) {
+        max = altraTaula[i];
+    }
+    if (altraTaula[i] < min) {
+        min = altraTaula[i];
+    }
+}
+console.log("El valor més gran de la taula és: " + max);
+console.log("El valor més petit de la taula és: " + min);
+
+//21.12.- Fes un programa que crei una nova taula on s’emmagatzemin només els valors parells de la taula i que escrigui el contingut d’aquesta nova taula a la consola.
+let taulaNova = [];
+n = 0;
+for (let i = 0; i < altraTaula.length; i++){
+    if (altraTaula[i]%2==0){
+        taulaNova[n] = altraTaula[i];
+        n++;
+    }
+}
+console.log(taulaNova);
+
+//21.13.- Fes un programa que demani a l’usuari un valor (fent servir prompt()) i escrigui a la consola quants cops apareix aquest valor a la taula.
+valor = prompt("Escriu un número per calcular quants cops apareix:" );
+numVegades = 0;
+for (let i = 0; i < altraTaula.length; i++){
+    if (altraTaula[i] == valor){
+        numVegades += 1;
+    }
+}
+console.log("El número " + valor + " apareix " + numVegades + " cops.");
+
+//21.14.- Fes un programa que, donats dos arrays de números, comprovi si tots dos tenen el mateix número d’elements i, si és així, 
+//crei una nova taula que contingui la suma de cada element que es trobi a la mateixa posició als dos arrys.
+let arr1 = [1,2,3];
+let arr2 = [4,5,6];
+let nouArr = [];
+if (arr1.length == arr2.length){
+    for (let i = 0; i < arr1.length; i++){
+        nouArr[i] = arr1[i] + arr2[i];
+    } 
+}
+console.log(nouArr);
+
+//21.15.- Fes un programa que, donats una taula amb números, guardi a una nova taula els valors de la primera però donant-li la volta.
+let taula15 = [1,2,3,4,5];
+let taulaInvertida = taula15.reverse();
+console.log (taulaInvertida);

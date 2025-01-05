@@ -126,3 +126,22 @@ function cadenaCodificada(cadena){
 //let cadena = prompt("Introdueix una frase:");
 //let codificada = cadenaCodificada(cadena);
 //console.log(codificada);
+
+//19.12.- Crea una funció que rep els tres paràmetres següents: 2 nombres i un dels següents valors "+", "-", "*", "/", "%", "pot" 
+// i retorni el resultat de l'operació realitzada. Fes servir la instrucció switch. 
+function operacio(num1,num2,operador){
+    switch(operador){
+        case "+": return num1+num2;
+        case "-": return num1-num2;
+        case "*": return num1*num2;
+        case "/": return num1/num2;
+        case "%": return num1%num2;
+        case "pot": return num1**num2;
+        default: return "Operador no vàlid.";
+    }
+} 
+//let num1 = prompt("Escriu un nombre:");
+//let num2 = prompt("Escriu un altre nombre:");
+//let operador = prompt("Escriu el tipus d'operador que vols fer servir");
+//console.log(operacio(num1,num2,operador));
+
