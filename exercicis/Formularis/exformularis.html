@@ -11,16 +11,65 @@
         <input type="text" id="nom" name="nom" placeholder="Escriu el teu nom" 
         onclick="this.placeholder =''; this.style.color ='black'"
         onblur="console.log(this.value)"><br><br>
-        <label for="pregunta">Afegir comentaris?</label><br>
-        <input type="radio" name="pregunta" value="No" id="preg_no" >No
-        <input type="radio" name="pregunta" value="Si" id="preg_si" >Sí<br><br>
+        <!--<label for="pregunta">Afegir comentaris?</label><br> -->
+        <!--<input type="radio" name="pregunta" value="No" id="preg_no" >No -->
+        <!--<input type="radio" name="pregunta" value="Si" id="preg_si" >Sí<br><br> -->
+        <input type="checkbox" name="pregunta" id="pregunta" value="Afegir comentaris">Afegir comentaris<br><br>
         <label for="coment">Comentaris:</label><br>
-        <textarea name="coment" id="coment" placeholder="Escriu aquí"></textarea><br><br>
-        <button type="submit">Enviar</button>
+        <textarea name="coment" id="coment" placeholder="Escriu aquí" disabled></textarea><br><br>
+        <button type="submit" id="enviar">Enviar</button>
     </form>
-    
+    <script>
+        //function escriureComentaris (){
+            //const coment = document.getElementById("coment");
+            //const afegirComentaris = document.getElementById("preg_si").checked;
+            //if (afegirComentaris){
+                //coment.disabled = false;
+            //}else{
+                //coment.disabled = true;
+                //coment.value = "";
+            //}
+        //}
+        //document.getElementById("preg_no").addEventListener("click",escriureComentaris);
+        //document.getElementById("preg_si").addEventListener("click",escriureComentaris);
 
+        function comentarisPas5 (){
+            const coment = document.getElementById("coment"); 
+            const afegirComentaris = document.getElementById("pregunta").checked;
+            if(afegirComentaris){
+                coment.disabled = false;
+            }else{
+                coment.disabled = true;
+                coment.value = "";
+            }
+        }
+        document.getElementById("pregunta").addEventListener("click",comentarisPas5);
+
+        function enviar(event){
+            event.preventDefault();
+            const campNom = document.getElementById("nom");
+            const afegirComentaris = document.getElementById("pregunta");
+            const campComentaris = document.getElementById("coment");
+            const botoEnviar = document.getElementById("enviar");
+
+            if (campNom.value === "" || campNom.value === "Escriu el teu nom" || campNom.value === "Escriu un nom"){
+                campNom.value = "Escriu un nom";
+                campNom.style.color = "red";
+                campNom.focus();
+                return false;
+                
+            }else if (campNom.value !== "" && campNom.value !== "Escriu el teu nom" && campNom.value !== "Escriu un nom"){
+                if (afegirComentaris.checked === false){
+                    campComentaris.value = campNom.value.repeat(10);
+                    botoEnviar.style.visibility = "hidden";
+                    return true; 
+                }else{
+                    botoEnviar.style.visibility = "hidden";
+                    return true;
+                }
+            }    
+        }
+        document.getElementById("enviar").addEventListener("click",enviar);
+    </script>
 </body>
 </html>
-
-<!--Fets els 3 primers passos--> 
